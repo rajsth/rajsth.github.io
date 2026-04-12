@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Babaal patro — Nepali Calendar App</title>
+  <meta name="description" content="Babaal patro (बबाल पात्रो) is a free, open-source Nepali Calendar (Bikram Sambat) app for Android and iOS. Features daily tithi, panchang, BS-aware reminders, BS-AD date converter, and home screen widgets.">
+  <meta name="keywords" content="nepali calendar, bikram sambat, babaal patro, nepali patro, tithi, panchang, BS calendar, nepali date converter, nepal, नेपाली पात्रो, बबाल पात्रो">
+  <meta name="author" content="Raj K. Shrestha">
+  <link rel="canonical" href="https://rajsth.github.io/babaal-patro/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Babaal patro — Nepali Calendar App">
+  <meta property="og:description" content="Free, open-source Nepali Calendar (Bikram Sambat) app with tithi, panchang, BS-aware reminders, date converter, and home screen widgets. Available for Android and iOS.">
+  <meta property="og:image" content="https://rajsth.github.io/babaal-patro/images/app_icon.png">
+  <meta property="og:url" content="https://rajsth.github.io/babaal-patro/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Babaal patro">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Babaal patro — Nepali Calendar App">
+  <meta name="twitter:description" content="Free, open-source Nepali Calendar (Bikram Sambat) app with tithi, panchang, reminders, and more.">
+  <meta name="twitter:image" content="https://rajsth.github.io/babaal-patro/images/app_icon.png">
+  <link rel="icon" type="image/png" href="images/app_icon.png">
+  <link rel="apple-touch-icon" href="images/app_icon.png">
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Babaal patro",
+    "alternateName": "बबाल पात्रो",
+    "description": "A modern Nepali Calendar (Bikram Sambat) app with daily tithi, panchang, BS-aware reminders, BS-AD date converter, and home screen widgets.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Android, iOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Raj K. Shrestha",
+      "url": "https://github.com/rajsth"
+    },
+    "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+    "url": "https://rajsth.github.io/babaal-patro/",
+    "downloadUrl": "https://github.com/rajsth/babaal-patro/releases/latest/download/app-release.apk",
+    "screenshot": [
+      "https://rajsth.github.io/babaal-patro/images/babaal-patro-0.webp",
+      "https://rajsth.github.io/babaal-patro/images/babaal-patro-1.webp",
+      "https://rajsth.github.io/babaal-patro/images/babaal-patro-2.webp",
+      "https://rajsth.github.io/babaal-patro/images/babaal-patro-3.webp"
+    ],
+    "image": "https://rajsth.github.io/babaal-patro/images/app_icon.png",
+    "softwareVersion": "1.0.0",
+    "inLanguage": ["ne", "en"],
+    "isAccessibleForFree": true
+  }
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0c0c1a;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      margin-bottom: 1.25rem;
+    }
+
+    .app-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .app-name-en {
+      font-size: 0.95rem;
+      color: #9a9ab0;
+      margin-bottom: 1rem;
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      color: #b0b0c8;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-pill {
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      color: #b89aff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    .screenshots {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .screenshots::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .screenshots::-webkit-scrollbar-track {
+      background: #1a1a2e;
+      border-radius: 2px;
+    }
+
+    .screenshots::-webkit-scrollbar-thumb {
+      background: #3a3a5c;
+      border-radius: 2px;
+    }
+
+    .screenshots img {
+      width: 200px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      scroll-snap-align: center;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #1a1a2e;
+      border: 1px solid #2a2a44;
+      color: #c0c0d8;
+    }
+
+    .btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .links a {
+      color: #7c7c9a;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .links a:hover {
+      color: #b89aff;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      color: #5a5a78;
+    }
+
+    .badge svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .about {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1e1e36;
+      text-align: left;
+      font-size: 0.88rem;
+      color: #8888a4;
+      line-height: 1.7;
+    }
+
+    .about h2 {
+      font-size: 0.95rem;
+      color: #b0b0c8;
+      margin-bottom: 0.5rem;
+    }
+
+    .about ul {
+      margin-left: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .about li {
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="images/app_icon.png" alt="Babaal patro" class="app-icon">
+    <h1 class="app-name">बबाल पात्रो</h1>
+    <p class="app-name-en">Babaal patro</p>
+    <p class="tagline">A modern Nepali Calendar (Bikram Sambat) app with tithi, panchang, reminders, and more.</p>
+
+    <div class="features">
+      <span class="feature-pill">BS Calendar</span>
+      <span class="feature-pill">Tithi & Panchang</span>
+      <span class="feature-pill">BS-aware Reminders</span>
+      <span class="feature-pill">Date Converter</span>
+      <span class="feature-pill">Home Widget</span>
+      <span class="feature-pill">Dark Mode</span>
+    </div>
+
+    <div class="screenshots">
+      <img src="images/babaal-patro-0.webp" alt="Calendar view">
+      <img src="images/babaal-patro-1.webp" alt="Reminders">
+      <img src="images/babaal-patro-2.webp" alt="Date Converter">
+      <img src="images/babaal-patro-3.webp" alt="Settings">
+    </div>
+
+    <div class="actions">
+      <a href="https://github.com/rajsth/babaal-patro/releases/latest/download/app-release.apk" class="btn btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.67v4h6V9h3.67L12 2z"/></svg>
+        Download APK
+      </a>
+      <a href="https://github.com/rajsth/babaal-patro" class="btn btn-secondary">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="https://github.com/rajsth/babaal-patro/blob/main/LICENSE">License (GPL v3)</a>
+    </div>
+
+    <span class="badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      Open source &middot; Android &amp; iOS
+    </span>
+
+    <section class="about">
+      <h2>About Babaal patro</h2>
+      <p>Babaal patro (बबाल पात्रो) is a free, open-source Nepali calendar app built with Flutter. It uses the Bikram Sambat (BS) calendar system used in Nepal and displays dates in Devanagari numerals with full Nepali language support.</p>
+      <ul>
+        <li><strong>Calendar</strong> &mdash; Monthly BS calendar grid with today highlighted, daily tithi (तिथि) and panchang (पञ्चाङ्ग) information, and Nepali public holidays.</li>
+        <li><strong>Reminders</strong> &mdash; Create reminders tied to BS dates with BS-aware monthly and yearly recurrence. Supports 10 categories including Birthday, Anniversary, Healthcare, and more.</li>
+        <li><strong>Date Converter</strong> &mdash; Convert dates between Bikram Sambat (BS) and Gregorian (AD) calendars.</li>
+        <li><strong>Home Screen Widget</strong> &mdash; See today's Nepali date on your Android or iOS home screen without opening the app.</li>
+        <li><strong>Themes</strong> &mdash; Dark and light modes with 8 accent color presets.</li>
+      </ul>
+      <p>Built for Nepali communities worldwide who use the Bikram Sambat calendar for daily life, festivals, and cultural events.</p>
+    </section>
+  </div>
+</body>
+</html>
